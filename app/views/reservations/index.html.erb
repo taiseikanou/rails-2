@@ -1,2 +1,41 @@
-<h1>Reservations#index</h1>
-<p>Find me in app/views/reservations/index.html.erb</p>
+<div class="container">
+  <h3>予定一覧</h3>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>合計料金</th>
+        <th>チェックイン</th>
+        <th>チェックアウト</th>
+        <th>予約確定日時</th>
+        <th>再予約</th>
+        <th>予約を削除</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+        <tr>
+        <% if reservation.room.image.attached? %>
+          <td><%= image_tag reservation.room.image, size: "200x200" %></td>
+          <% else %>
+          <td><%= image_tag 'no_image', size: "100x100" %></td>
+        <% end %>
+          <td><%= reservation.room.room_name %></td>
+          <td><%= reservation.room.room_detail %></td>
+          <td><%= reservation.room.price %></td>
+          <td><%= reservation.room.price %></td>
+          <td><%= reservation.check_in.to_s(:datetime_jp) %></td>
+          <td><%= reservation.check_out.to_s(:datetime_jp) %></td>
+          <td><%= reservation.room.updated_at.to_s(:datetime)%></td>
+          <td><%= link_to "編集", [:edit, reservation] %></td>
+          <td><%= link_to "削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

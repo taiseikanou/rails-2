@@ -1,0 +1,20 @@
+<div>
+  <% if @reservation.room.image.attached? %>
+    <%= image_tag @reservation.room.image, size: "300x300" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "300x300" %>
+  <% end %>
+  <p><%= @reservation.room.room_name %></p>
+  <p><%= @reservation.room.address %></p>
+  <p><%= @reservation.room.room_name %></p>
+  <p><%= @reservation.room.price %></p>
+  <p><%= @reservation.room.room_detail %></p>
+</div>
+
+<%= form_with model:@reservation do |f| %>
+    <%= f.number_field :number_of_guests, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.date_field :check_in, class: "form-control" %>
+    <%= f.date_field :check_out, class: "form-control" %>
+    <%= f.hidden_field :reservation_id, value: @reservation_id %>
+<%= f.submit "送信する" %>
+<% end %>

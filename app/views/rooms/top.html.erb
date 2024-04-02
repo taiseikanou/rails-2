@@ -1,0 +1,37 @@
+<div class="Firstview">
+  <section class="container">
+    <h2 class="FirstView_title">
+      Potepan Shareで<br>
+      まだ体験したことのない<br>
+      旅をしよう
+    </h2>
+    <div class="FirstViewSearch">
+      <%= form_with url: rooms_path, method: :get do |form| %>
+        <%= form.text_field :search %>
+        <%= form.submit 'Search', name: nil %>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<div class="container">
+  <section class="RecommendAreaSection">
+    <h2 class="RecommendAreaSection__title">
+        おすすめのエリア
+    </h2>
+  <div class="RecommendAreas">
+    <a class="RecommendArea RecommendArea--tokyo">
+      <%= link_to "東京", rooms_path(address: "東京"), method: :get %>
+    </a>
+    <a class="RecommendArea RecommendArea--kyoto">
+      <%= link_to "京都", rooms_path(address: "京都"), method: :get %>
+    </a>
+    <a class="RecommendArea RecommendArea--osaka">
+      <%= link_to "大阪", rooms_path(address: "大阪"), method: :get %>
+    </a>
+    <a class="RecommendArea RecommendArea--sapopro">
+      <%= link_to "札幌", rooms_path(address: "札幌"), method: :get %>
+    </a>
+  </div>
+</div>
+
