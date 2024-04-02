@@ -2,7 +2,7 @@
 <% if @room.image.attached? %>
   <%= image_tag @room.image, size: "300x300" %>
 <% else %>
-<%= image_tag 'no_image', size: "300x300" %>
+<%= image_tag 'profile', size: "300x300" %>
 <% end %>
   <p><%= @room.room_name %></p>
   <p><%= @room.address %></p>

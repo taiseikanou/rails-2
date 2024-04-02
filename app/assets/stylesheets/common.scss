@@ -1,0 +1,120 @@
+header {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: rgb(18, 18, 156);
+    border-bottom: 7px solid orange;
+    color: azure;
+    text-align: center;
+  }
+  
+  footer{
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    border-top: 7px solid orange;
+  }
+  
+  .footer {
+    text-align: center;
+    font-size: 1.2em; 
+    margin-top: 20px; 
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .FormWrapper {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .FormWrapper h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .mt-3 {
+    margin-top: 20px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+ /* テーブル全体のスタイル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* テーブルのヘッダー行のスタイル */
+thead {
+  background-color: #f2f2f2; /* ヘッダーの背景色 */
+}
+
+/* テーブルのヘッダーセルのスタイル */
+th {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* 下部の境界線 */
+}
+
+/* テーブルのデータ行のスタイル */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* 偶数行の背景色 */
+}
+
+/* テーブルのデータセルのスタイル */
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* 下部の境界線 */
+}
+
+/* 検索フォームのスタイル */
+form {
+  margin-bottom: 20px;
+}
+
+/* 画像のスタイル */
+td img {
+  max-width: 100px;
+  max-height: 100px;
+}
