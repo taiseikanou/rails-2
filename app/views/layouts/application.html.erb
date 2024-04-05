@@ -13,26 +13,18 @@
 
   <body>
   <header>
-  <% if user_signed_in? %>
+    <% if user_signed_in? %>
+    <select name="dropdown">
+      <option value="option1" selected><%= current_user.name %><%= image_tag current_user.get_profile_image(50,50) %></option>
+      <option value="option2"><%= link_to "施設の新規登録", new_room_path %></option>
+      <option value="option3"><%= link_to "予約済み一覧", reservations_path %></option>
+      <option value="option4"><%= link_to "登録済み一覧", rooms_own_path %></option>
+      <option value="option5"><%= link_to "アカウント設定", users_account_path %></option>
+      <option value="option6"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></option>
+    </select>
     <li>
       <%= link_to "ホーム", root_path %>
     </li>
-    <li>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-    <li>
-      <%= link_to "施設の新規登録", new_room_path %>
-    </li>
-    <li>
-      <%= link_to "予約済み一覧", reservations_path %>
-    </li>
-    <li>
-      <%= link_to "登録済み一覧", rooms_own_path %>
-    </li>
-    <li>
-      <%= link_to "アカウント設定", users_account_path %>
-    </li>
-
   <% else %>
     <li>
       <%= link_to "新規登録", new_user_registration_path %>
