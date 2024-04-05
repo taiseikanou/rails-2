@@ -20,4 +20,3 @@ ActiveStorage.start()
 function goBack() {
   window.history.back();
 }
-

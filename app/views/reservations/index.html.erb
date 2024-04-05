@@ -1,6 +1,5 @@
 <div class="container">
   <h3>予定一覧</h3>
-
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -15,7 +14,6 @@
         <th>予約を削除</th>
       </tr>
     </thead>
-
     <tbody>
       <% @reservations.each do |reservation| %>
         <tr>
@@ -23,11 +21,11 @@
         <% if reservation.room.image.attached? %>
           <td><%= image_tag reservation.room.image, size: "200x200" %></td>
           <% else %>
-          <td><%= image_tag 'no_image', size: "100x100" %></td>
+          <td><%= image_tag 'room.png', size: "100x100" %></td>
         <% end %>
           <td><%= reservation.room.room_name %></td>
           <td><%= reservation.room.room_detail %></td>
-          <td><%= reservation.room.total_price %></td>
+          <td><%= reservation.total_price %></td>
           <td><%= reservation.check_in.to_s(:datetime_jp) %></td>
           <td><%= reservation.check_out.to_s(:datetime_jp) %></td>
           <td><%= reservation.room.updated_at.to_s(:datetime)%></td>

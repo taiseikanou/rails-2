@@ -17,6 +17,7 @@
     <%= f.date_field :check_in, class: "form-control" %>
     <%= f.date_field :check_out, class: "form-control" %>
     <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :user_id, value: @room.id %>
 <%= f.submit "送信する" %>
 <% end %>
 

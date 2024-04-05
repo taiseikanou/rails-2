@@ -9,7 +9,7 @@ class RoomsController < ApplicationController
   end
 
   def own
-    @rooms = Room.all
+    @rooms = current_user.rooms
   end
 
   def new
@@ -17,14 +17,14 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = current_user.rooms.build(room_params)
     if @room.save
       flash[:notice] = "新規投稿しました"
       redirect_to root_path
     else
       render :new
+    end
   end
-end
 
   def show
     @room = Room.find(params[:id])

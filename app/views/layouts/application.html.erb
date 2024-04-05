@@ -14,14 +14,45 @@
   <body>
   <header>
     <% if user_signed_in? %>
-    <select name="dropdown">
-      <option value="option1" selected><%= current_user.name %><%= image_tag current_user.get_profile_image(50,50) %></option>
-      <option value="option2"><%= link_to "施設の新規登録", new_room_path %></option>
-      <option value="option3"><%= link_to "予約済み一覧", reservations_path %></option>
-      <option value="option4"><%= link_to "登録済み一覧", rooms_own_path %></option>
-      <option value="option5"><%= link_to "アカウント設定", users_account_path %></option>
-      <option value="option6"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></option>
-    </select>
+    <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropbtn">
+      <%= current_user.name %>
+      <%= image_tag current_user.get_profile_image(50, 50) %>
+    </button>
+    <div id="dropdownContent" class="dropdown-content">
+      <%= link_to "施設の新規登録", new_room_path %>
+      <%= link_to "予約済み一覧", reservations_path %>
+      <%= link_to "登録済み一覧", rooms_own_path %>
+      <%= link_to "アカウント設定", users_account_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+  
+  <script>
+  function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdownContent");
+    if (dropdownContent.style.display === "none") {
+      dropdownContent.style.display = "block";
+    } else {
+      dropdownContent.style.display = "none";
+    }
+  }
+  
+  // ドロップダウンの外側をクリックしたときに閉じる
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.style.display === "block") {
+          openDropdown.style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+  
+
     <li>
       <%= link_to "ホーム", root_path %>
     </li>

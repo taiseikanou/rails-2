@@ -1,16 +1,19 @@
 class ReservationsController < ApplicationController
 
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
   end
 
   def confirm
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation.save
+    @reservation = current_user.reservations.build(reservation_params)
+    if @reservation.save
       redirect_to reservations_path
+    else
+      render :new
+    end
   end
 
   def show

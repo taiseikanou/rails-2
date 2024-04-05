@@ -2,7 +2,7 @@
   <% if @reservation.room.image.attached? %>
     <%= image_tag @reservation.room.image, size: "300x300" %>
   <% else %>
-    <%= image_tag 'no_image', size: "300x300" %>
+    <%= image_tag 'room.png', size: "300x300" %>
   <% end %>
   <p><%= @reservation.room.room_name %></p>
   <p><%= @reservation.room.address %></p>

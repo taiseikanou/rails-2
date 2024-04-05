@@ -4,15 +4,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :profile_image
+  has_many :reservations
+  has_many :rooms
 
-
-  def get_profile_image(width, height)
-    unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/profile.png')
-      profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    def get_profile_image(width, height)
+      unless profile_image.attached?
+        file_path = Rails.root.join('app/assets/images/profile.png')
+        profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+      end
+      profile_image.variant(resize_to_limit: [width, height]).processed
     end
-    profile_image.variant(resize_to_limit: [width, height]).processed
-  end
 
 
 

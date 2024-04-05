@@ -22,7 +22,7 @@
           <% else %>
           <td><%= image_tag 'room.png', size: "100x100" %></td>
         <% end %>
-          <td><%= room.room_name %></td>
+          <td><%= link_to room.room_name, room %></td>
           <td><%= room.room_detail %></td>
           <td><%= room.price %></td>
           <td><%= room.updated_at.to_s(:datetime_jp)%></td>
