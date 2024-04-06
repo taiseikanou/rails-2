@@ -1,71 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Booking</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
+<head>
+  <title>Booking</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
   <header>
+    <nav class = "navbar">
+    <a class="home" href="/">
+    <img src="<%= image_path("home.png") %>" alt="Tokyo" width="221" height="33">
+</a>
     <% if user_signed_in? %>
-    <div class="dropdown">
-    <button onclick="toggleDropdown()" class="dropbtn">
-      <%= current_user.name %>
-      <%= image_tag current_user.get_profile_image(50, 50) %>
-    </button>
-    <div id="dropdownContent" class="dropdown-content">
-      <%= link_to "施設の新規登録", new_room_path %>
-      <%= link_to "予約済み一覧", reservations_path %>
-      <%= link_to "登録済み一覧", rooms_own_path %>
-      <%= link_to "アカウント設定", users_account_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </div>
-  </div>
-  
+      <div class="dropdown header-menu">
+        <button onclick="toggleDropdown()" class="dropbtn">
+          <%= image_tag current_user.get_profile_image(20, 20) %>
+          <%= current_user.name %>
+        </button>
+        <div id="dropdownContent" class="dropdown-content">
+          <%= link_to "施設の新規登録", new_room_path %>
+          <%= link_to "予約済み一覧", reservations_path %>
+          <%= link_to "登録済み一覧", rooms_own_path %>
+          <%= link_to "アカウント設定", users_account_path %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
+    <% else %>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    <% end %>
+    </nav>
+  </header>
+  <%= yield %>
   <script>
-  function toggleDropdown() {
-    var dropdownContent = document.getElementById("dropdownContent");
-    if (dropdownContent.style.display === "none") {
-      dropdownContent.style.display = "block";
-    } else {
-      dropdownContent.style.display = "none";
+    function toggleDropdown() {
+      var dropdownContent = document.getElementById("dropdownContent");
+      if (dropdownContent.style.display === "none") {
+        dropdownContent.style.display = "block";
+      } else {
+        dropdownContent.style.display = "none";
+      }
     }
-  }
   
-  // ドロップダウンの外側をクリックしたときに閉じる
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content");
-      for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.style.display === "block") {
-          openDropdown.style.display = "none";
+    // ドロップダウンの外側をクリックしたときに閉じる
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.style.display === "block") {
+            openDropdown.style.display = "none";
+          }
         }
       }
     }
-  }
   </script>
-  
-
-    <li>
-      <%= link_to "ホーム", root_path %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "ログイン", new_user_session_path %>
-    </li>
-  <% end %>
-</header>
-    <%= yield %>
-  </body>
+</body>
 </html>
-

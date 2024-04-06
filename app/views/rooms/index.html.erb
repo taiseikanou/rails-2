@@ -1,9 +1,12 @@
 <%= form_with(url: rooms_path, method: :get) do |form| %>
-  <%= form.text_field :search, placeholder: "Search rooms..." %>
+  <%= form.text_field :address, placeholder: "Search rooms..." %>
+  <%= form.submit "Search" %>
+<% end %>
+<%= form_with(url: rooms_path, method: :get) do |form| %>
+  <%= form.text_field :room_n, placeholder: "Search rooms..." %>
   <%= form.submit "Search" %>
 <% end %>
   <% if @rooms.present? %>
-  
     <table>
       <thead>
         <tr>

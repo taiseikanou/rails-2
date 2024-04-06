@@ -4,9 +4,10 @@ class RoomsController < ApplicationController
   
   def index
     @rooms = Room.all
-    @rooms = @rooms.where("room_name LIKE ?", "%#{params[:room_name]}%") if params[:room_name].present?
-    @rooms = @rooms.where("address LIKE ?", "%#{params[:address]}%")
+    @rooms = @rooms.where("address LIKE ?", "#{params[:address]}%")
   end
+  
+  
 
   def own
     @rooms = current_user.rooms
