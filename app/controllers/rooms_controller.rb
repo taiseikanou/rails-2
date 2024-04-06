@@ -1,15 +1,14 @@
 class RoomsController < ApplicationController
   def top
   end
-  
+
   def index
     @rooms = Room.all
     @rooms = @rooms.where("address LIKE ?", "#{params[:address]}%") if params[:address].present?
-    @rooms = @rooms.where("room_name LIKE ?", "#{params[:room_name]}%") if params[:room_name].present?
+    if params[:search].present?
+      @rooms = @rooms.where("room_name LIKE ? OR room_detail LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    end
   end
-
-  
-  
 
   def own
     @rooms = current_user.rooms
@@ -22,8 +21,7 @@ class RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(room_params)
     if @room.save
-      flash[:notice] = "新規投稿しました"
-      redirect_to root_path
+       redirect_to rooms_own_path
     else
       render :new
     end
@@ -41,7 +39,7 @@ class RoomsController < ApplicationController
   def update
     @room = Room.find(params[:id])
     if @room.update(room_params)
-      redirect_to root_path
+      redirect_to rooms_own_path
     else
       render "edit"
     end
@@ -50,7 +48,7 @@ class RoomsController < ApplicationController
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
-    redirect_to root_path
+    redirect_to rooms_own_path
   end
 
   private

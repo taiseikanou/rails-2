@@ -4,9 +4,6 @@ class ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
-  def confirm
-  end
-
   def create
     @reservation = current_user.reservations.build(reservation_params)
     if @reservation.save
@@ -26,7 +23,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
-      redirect_to root_path
+      redirect_to reservations_path
     else
       render "edit"
     end
@@ -35,7 +32,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to root_path
+    redirect_to reservations_path
   end
 
   private
