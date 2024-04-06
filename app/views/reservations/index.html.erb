@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>予定一覧</h3>
+  <h3>予定済み一覧</h3>
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -10,8 +10,7 @@
         <th>チェックイン</th>
         <th>チェックアウト</th>
         <th>予約確定日時</th>
-        <th>再予約</th>
-        <th>予約を削除</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +28,10 @@
           <td><%= reservation.check_in.to_s(:datetime_jp) %></td>
           <td><%= reservation.check_out.to_s(:datetime_jp) %></td>
           <td><%= reservation.room.updated_at.to_s(:datetime)%></td>
-          <td><%= link_to "編集", [:edit, reservation] %></td>
-          <td><%= link_to "削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+          <td>
+            <%= link_to "編集", [:edit, reservation] %><br>
+            <%= link_to "削除", reservation_path(reservation), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

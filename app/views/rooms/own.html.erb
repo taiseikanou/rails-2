@@ -9,11 +9,9 @@
         <th>紹介文</th>
         <th>料金</th>
         <th>作成日</th>
-        <th>更新</th>
-        <th>消去</th>
+        <th></th>
       </tr>
     </thead>
-
     <tbody>
       <% @rooms.each do |room| %>
         <tr>
@@ -26,8 +24,10 @@
           <td><%= room.room_detail %></td>
           <td><%= room.price %></td>
           <td><%= room.updated_at.to_s(:datetime_jp)%></td>
-          <td><%= link_to "編集", [:edit, room] %></td>
-          <td><%= link_to "削除", room_path(room), method: :delete, data: { confirm: "本当に削除しますか？" } %></td>
+          <td>
+            <%= link_to "編集", [:edit, room] %><br>
+            <%= link_to "削除", room_path(room), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

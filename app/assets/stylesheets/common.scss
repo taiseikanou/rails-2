@@ -1,133 +1,129 @@
 header {
-    width: 100%;
-    background-color: rgb(18, 18, 156);
-    border-bottom: 7px solid orange;
-    color: azure;
-    text-align: center;
-    display: flex;
-    justify-content: space-between;
-  }
-  .home {
-    text-align: left;
-  }
-  
-  .name{
-    padding-left: 5px;
-  }
+  width: 100%;
+  background-color: rgb(18, 18, 156);
+  border-bottom: 7px solid orange;
+  color: azure;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .header-menu {
-    position: relative;
-  }
-  
-  .dropbtn {
-    background-color: rgb(18, 18, 156);
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 150px; /* ボタンの幅を調整 */
-    text-align: left; /* ボタン内のテキストを左揃えに */
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    width: 100%; /* ドロップダウンの幅をボタンと同じに */
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .dropdown-content a:hover {
-    background-color: #f1f1f1;
-  }
-  
-  
+.home {
+  text-align: left;
+}
 
+.name{
+  padding-left: 5px;
+}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  
-  footer{
-    width: 100%;
-    padding: 15px;
-    margin-top: 30px;
-    border-top: 7px solid orange;
-  }
-  
-  .footer {
-    text-align: center;
-    font-size: 1.2em; 
-    margin-top: 20px; 
-  }
+.header-menu {
+  position: relative;
+}
 
-  .FormWrapper {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .FormWrapper h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    font-weight: bold;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    color: #fff;
-  }
-  
-  .mt-3 {
-    margin-top: 20px;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
- /* テーブル全体のスタイル */
+.dropbtn {
+  background-color: rgb(18, 18, 156);
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  text-align: left;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 100%;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+footer {
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  border-top: 7px solid orange;
+}
+
+.footer {
+  text-align: center;
+  font-size: 1.2em; 
+  margin-top: 20px; 
+}
+
+.FormWrapper {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.FormWrapper h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.mt-3 {
+  margin-top: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* テーブル全体のスタイル */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -143,7 +139,8 @@ thead {
 th {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd; /* 下部の境界線 */
+  border-bottom: 1px solid #ddd;
+  align-items: center; /* 下部の境界線 */
 }
 
 /* テーブルのデータ行のスタイル */
@@ -153,6 +150,7 @@ tbody tr:nth-child(even) {
 
 /* テーブルのデータセルのスタイル */
 td {
+  align-items: center;
   padding: 8px;
   text-align: left;
   border-bottom: 1px solid #ddd; /* 下部の境界線 */
@@ -174,9 +172,7 @@ td img {
 }
 
 .Firstview {
-  /* 背景画像を設定 */
   background-image: url(image-path("travel.jpeg"));
-  /* 背景画像を要素全体に広げる */
   background-size: cover;
   background-position: 50%;
   height:420px;
@@ -192,17 +188,67 @@ td img {
 .RecommendAreaSection{
   text-align: center;
   height:420px;
-
 }
 
 .RecommendAreaSection__title{
   padding-bottom: 100px;
 }
 
-
-
 .RecommendArea__image {
   width: 100%;
   height: auto;
 }
 
+.Searchrooms {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SearchroomsForm{
+  padding-top: 30px;
+  margin: auto;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-top: 30px;
+}
+
+.sidebar{
+  padding-top: 30px;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.imag_show{
+  padding-top: 30px;
+}
+
+.room{
+  background-color: #fff8f1;
+  padding-top: 25px;
+  margin-top: 60px;
+}
+
+.room_show{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16pv;
+}
+
+.room_show p {
+  font-size: 30px; 
+}
+
+.reservation{
+  display: flex;
+}
