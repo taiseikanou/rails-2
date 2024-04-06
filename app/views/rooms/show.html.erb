@@ -18,8 +18,8 @@
         </div>
         <p><%= @room.address %></p>
         <p><%= @room.room_detail %></p>
-        
         <%= form_with model:@reservation do |f| %>
+          <%= render "shared/error", obj: @reservation %>
           <div class="reservation">
             <div class="form-group">
               <%= f.label :チェックイン %>

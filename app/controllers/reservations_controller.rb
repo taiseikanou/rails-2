@@ -1,5 +1,4 @@
 class ReservationsController < ApplicationController
-
   def index
     @reservations = current_user.reservations
   end
@@ -9,7 +8,8 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservations_path
     else
-      render :new
+      @room = Room.find(params[:reservation][:room_id])
+    render 'rooms/show'
     end
   end
 
