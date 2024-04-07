@@ -21,9 +21,6 @@ class Reservation < ApplicationRecord
     end
   end
 
-
-
-
   def reservation_duration
     ((check_out - check_in) / 1.day).to_i
   end

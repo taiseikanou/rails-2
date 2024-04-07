@@ -12,10 +12,7 @@ class ReservationsController < ApplicationController
     render 'rooms/show'
     end
   end
-
-  def show
-  end
-
+  
   def edit
     @reservation = Reservation.find(params[:id])
   end
