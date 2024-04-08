@@ -1,18 +1,14 @@
 ja:
   activerecord:
     models:
-      room: 
+      room: 施設
+      reservation: 予約
     attributes:
       room:
         room_name: 施設名
         room_detail: 施設詳細
         price: 料金
         address: 住所
-  
-  activerecord:
-    models:
-      reservation: 
-    attributes:
       reservation:
         check_in: チェックイン
         check_out: チェックアウト

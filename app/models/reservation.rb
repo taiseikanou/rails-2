@@ -4,7 +4,6 @@ class Reservation < ApplicationRecord
 
   validates :check_in, presence: true
   validates :check_out, presence: true
-  validates :number_of_guests, presence: true
   validates :number_of_guests, numericality: { only_integer: true, greater_than: 0 }
   validate :check_in_date_after_today
   validate :check_out_after_check_in
@@ -16,8 +15,8 @@ class Reservation < ApplicationRecord
   end
 
   def check_in_date_after_today
-    if check_in.present? && check_in <= Date.today
-      errors.add(:check_in, "は今日よりも後の日付を選択してください")
+    if check_in.present? && check_in < Date.yesterday
+      errors.add(:check_in, "本日以降の日付を選択してください")
     end
   end
 

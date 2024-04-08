@@ -22,7 +22,7 @@
         <% end %>
           <td><%= link_to room.room_name, room %></td>
           <td><%= room.room_detail %></td>
-          <td><%= room.price %></td>
+          <td><%= room.price %>円</td>
           <td><%= room.updated_at.to_s(:datetime_jp)%></td>
           <td>
             <%= link_to "編集", [:edit, room] %><br>
