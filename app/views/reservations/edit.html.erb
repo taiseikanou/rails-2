@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="imag_show">
+        <a href="#" onclick="goBack()">戻る</a>
+        <% if @reservation.room.image.attached? %>
+          <%= image_tag @reservation.room.image, class: "responsive-image" %>
+        <% else %>
+          <%= image_tag 'room', class: "responsive-image" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="room">
+        <div class="room_show">
+          <h2><%= @reservation.room.room_name %></h2>
+          <p><%= @reservation.room.price %>円</p>
+        </div>
+        <p><%= @reservation.room.address %></p>
+        <p><%= @reservation.room.room_detail %></p>
+        
+        <%= form_with model:@reservation do |f| %>
+          <%= render "shared/error", obj: @reservation %>
+          <div class="reservation">
+            <div class="form-group">
+              <%= f.label :チェックイン %>
+              <%= f.date_field :check_in, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :チェックアウト %>
+              <%= f.date_field :check_out, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :人数 %>
+              <%= f.number_field :number_of_guests, placeholder: "ゲストの数を入力してください", class: "form-control" %>
+            </div>
+          </div>
+          <%= f.hidden_field :reservation_id, value: @reservation_id %>
+          <%= f.submit "予約する", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+

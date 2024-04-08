@@ -1,0 +1,22 @@
+<%= render "shared/user" %>
+          <h3>プロフィール</h3>
+          <%= link_to "編集",users_profile_edit_path, class: "btn btn-warning btn-sm" %>
+        </div>
+        <%= image_tag current_user.get_profile_image(100,100) %>
+        <table class="table table-bordered DetailTable">
+          <tbody>
+            <tr>
+              <th scope="row">名前</th>
+              <td><%= current_user.name %></td>
+            </tr>
+            <tr>
+              <th scope="row">自己紹介</th>
+              <td><%= current_user.introduction %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

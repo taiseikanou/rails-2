@@ -1,0 +1,58 @@
+<div class="Firstview">
+  <div class="container">
+    <div class="Firstview_home">
+      <h2 class="FirstView_title">
+        Potepan Shareで<br>
+        まだ体験したことのない<br>
+        旅をしよう
+      </h2>
+      <div class="FirstViewSearch">
+        <%= form_with(url: rooms_path, method: :get) do |form| %>
+          <%= form.text_field :address, placeholder: "Search rooms..." %>
+          <%= form.submit "Search" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="RecommendAreaSection">
+  <h2 class="RecommendAreaSection__title">
+    おすすめのエリア
+  </h2>
+  <div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
+      <div class="col">
+          <a class="RecommendArea RecommendArea--tokyo" href="<%= rooms_path(address: "東京") %>">
+            <div class="RecommendArea__content">
+              <img src="<%= image_path("tokyo.jpeg") %>" alt="Tokyo" width="221" height="200">
+              <div class="RecommendArea__name">東京</div>
+            </div>
+          </a>
+      </div>
+      <div class="col">
+          <a class="RecommendArea RecommendArea--kyoto" href="<%= rooms_path(address: "京都") %>">
+            <div class="RecommendArea__content">
+              <img src="<%= image_path("kyoto.jpeg") %>" alt="Kyoto" width="221" height="200">
+              <div class="RecommendArea__name">京都</div>
+            </div>
+          </a>
+      </div>
+      <div class="col">
+          <a class="RecommendArea RecommendArea--osaka" href="<%= rooms_path(address: "大阪") %>">
+            <div class="RecommendArea__content">
+              <img src="<%= image_path("osaka.jpeg") %>" alt="Osaka" width="221" height="200">
+              <div class="RecommendArea__name">大阪</div>
+            </div>
+          </a>
+      </div>
+      <div class="col">
+          <a class="RecommendArea RecommendArea--sapporo" href="<%= rooms_path(address: "札幌") %>">
+            <div class="RecommendArea__content">
+              <img src="<%= image_path("sapporo.jpeg") %>" alt="Sapporo" width="221" height="200">
+              <div class="RecommendArea__name">札幌</div>
+            </div>
+          </a>
+      </div>
+    </div>
+  </div>
+</section>
